@@ -28,21 +28,11 @@ h1,h2,h3{font-family:"Oxanium","Rajdhani",ui-sans-serif,system-ui,sans-serif;let
 button,input,select{font:inherit;color:inherit;background:var(--s2);border:1px solid var(--bd);min-height:40px}
 button{cursor:pointer;color:var(--accfg);background:var(--acc);border:0;padding:0 14px;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
 button.ghost{background:transparent;color:var(--fg);border:1px solid var(--bd)}
-button.on{background:var(--acc);color:var(--accfg);border:0}
 .wrap{max-width:1180px;margin:0 auto;padding:14px}
 header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;border-bottom:1px solid color-mix(in oklab,var(--acc) 28%,transparent);padding:10px 0 14px}
 .brand{font-size:26px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
 .sub{color:var(--mut);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
 .panel{position:relative;background:var(--surf);padding:14px;margin:10px 0}
-.panel::before{content:"";position:absolute;inset:0;pointer-events:none;background:
-  linear-gradient(var(--acc),var(--acc)) 0 0/10px 1px no-repeat,
-  linear-gradient(var(--acc),var(--acc)) 0 0/1px 10px no-repeat,
-  linear-gradient(var(--acc),var(--acc)) 100% 0/10px 1px no-repeat,
-  linear-gradient(var(--acc),var(--acc)) 100% 0/1px 10px no-repeat,
-  linear-gradient(var(--acc),var(--acc)) 0 100%/10px 1px no-repeat,
-  linear-gradient(var(--acc),var(--acc)) 0 100%/1px 10px no-repeat,
-  linear-gradient(var(--acc),var(--acc)) 100% 100%/10px 1px no-repeat,
-  linear-gradient(var(--acc),var(--acc)) 100% 100%/1px 10px no-repeat}
 .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
 .grid{display:grid;gap:10px}
 .g2{grid-template-columns:1.3fr .7fr}
@@ -53,15 +43,13 @@ header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .status{color:var(--mut);font-size:12px}
 .error{color:var(--bad)}
-.tab{display:none}
-.tab.on{display:block}
-.nav{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(4,1fr);background:color-mix(in oklab,var(--surf) 92%,black);border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom)}
-.nav button{background:transparent;color:var(--mut);border:0;min-height:56px;letter-spacing:.1em;font-size:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.tab{display:none}.tab.on{display:block}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(4,1fr);background:#071116;border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom)}
+.nav button{background:transparent;color:var(--mut);border:0;min-height:56px;letter-spacing:.1em;font-size:10px}
 .nav button.on{color:var(--acc)}
-.install{display:none;margin:8px 0 0}
-.install.on{display:block}
-.hero-ft{font-family:"Oxanium",ui-sans-serif;font-size:56px;line-height:.9;letter-spacing:-.03em;font-weight:700}
-.hero-ft small{font-size:18px;letter-spacing:.08em;margin-left:6px;color:var(--mut)}
+.install{display:none;margin:8px 0 0}.install.on{display:block}
+.hero-ft{font-family:"Oxanium",ui-sans-serif;font-size:48px;line-height:.9;font-weight:700}
+.hero-ft small{font-size:18px;margin-left:6px;color:var(--mut)}
 .dots{display:flex;gap:5px;margin:8px 0}
 .dots i{width:10px;height:10px;border-radius:50%;background:var(--s2);border:1px solid var(--bd);display:block}
 .dots i.on{background:var(--acc);border-color:var(--acc)}
@@ -81,17 +69,15 @@ header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content
 .spec{display:grid;grid-template-columns:52px 1fr;gap:6px;align-items:center;margin-top:8px}
 .spec .lane{display:flex;height:14px;gap:1px;background:var(--s2)}
 .spec .lane i{flex:1;min-width:2px;display:block}
-.spec .lab{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);font-family:"IBM Plex Mono",ui-monospace,monospace}
+.spec .lab{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);font-family:"IBM Plex Mono",monospace}
 .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:11px;color:var(--mut);margin-top:8px}
 @media(max-width:860px){
   .g2,.meta,.daystrip{grid-template-columns:1fr 1fr}
-  .hero-ft{font-size:40px}
-  .wrap{padding:10px}
+  .hero-ft{font-size:36px}
 }
 </style>
 </head>
 <body>
-<noscript><p style="padding:24px;color:#00e8c4">Kandu needs JavaScript.</p></noscript>
 <div class="wrap">
 <header>
   <div>
@@ -130,10 +116,6 @@ header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content
 </div>
 <div id="tab-spot" class="tab">
 <section class="panel" id="detail"></section>
-<section class="panel" id="why">
-  <p class="k">What this board actually decides</p>
-  <p class="mut" style="margin:8px 0 0;font-size:13px">Call is GO / DAWN / HOLD / SKIP from score + wind + current, not a lone Hs. Face = Hs × reef wrap, steepened or flattened by SMOC channel flow. Tide is Malé harmonics lagged by latitude. Wait is minutes to two makeable walls.</p>
-</section>
 </div>
 </div>
 <nav class="nav" id="nav">
@@ -142,6 +124,8 @@ header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content
   <button data-tab="reefs">Reefs</button>
   <button data-tab="spot">Spot</button>
 </nav>
-<script src="app.js"></script>
+<script src="spots.js"></script>
+<script src="engine.js"></script>
+<script src="ui.js"></script>
 </body>
 </html>
