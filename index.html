@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="theme-color" content="#03080c"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Kandu"/>
+<title>Kandu</title>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="apple-touch-icon" href="icon.svg"/>
+<link rel="icon" href="icon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500&family=Oxanium:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#03080c;--surf:#071116;--s2:#0c1a22;--fg:#d4f7f0;--mut:#6d9a93;--sub:#3d5f5a;--acc:#00e8c4;--accfg:#021410;--bd:#14343a;--good:#00e8c4;--ok:#d4a84b;--bad:#ff4d7a;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 "IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;min-height:100%}
+body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+.wrap{max-width:1180px;margin:0 auto;padding:14px}
+.brand{font-family:Oxanium,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.sub,.k,.status,.mut{color:var(--mut);font-size:12px}
+.panel{background:var(--surf);padding:14px;margin:10px 0}
+.chip{display:inline-block;padding:4px 8px;background:var(--s2);border:1px solid var(--bd);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+button{font:inherit;background:var(--acc);color:var(--accfg);border:0;min-height:40px;padding:0 14px;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+.tab{display:none}.tab.on{display:block}
+.nav{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);background:#071116;border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom)}
+.nav button{background:transparent;color:var(--mut);min-height:56px}
+.nav button.on{color:var(--acc)}
+.hero-ft{font-family:Oxanium,sans-serif;font-size:48px;line-height:.95}
+.good{color:var(--good)}.ok{color:var(--ok)}.bad{color:var(--bad)}
+.num{font-family:"IBM Plex Mono",monospace}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.meta .b{background:var(--s2);padding:10px}
+.daystrip{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}
+.daystrip .d{background:var(--s2);padding:8px 4px;text-align:center}
+.reefs{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.scard{background:var(--s2);padding:12px;display:grid;grid-template-columns:1fr auto;gap:8px;cursor:pointer}
+.chart{width:100%;height:88px}
+.swellrow{display:grid;grid-template-columns:88px 1fr 120px;gap:8px;align-items:center;margin:6px 0;font-size:13px}
+.swellrow .trk{height:8px;background:var(--s2)}
+.swellrow .trk b{display:block;height:8px;background:var(--acc)}
+.dots{display:flex;gap:5px;margin:8px 0}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--s2);display:block}
+.dots i.on{background:var(--acc)}
+.dots i.mid{background:var(--ok)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;padding:8px 0 12px;border-bottom:1px solid #14343a}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><p class="sub">MALDIVES · 32 REEFS · MVT</p><h1 class="brand">Kandu</h1><p class="status" id="status">Loading…</p></div>
+  <div class="row"><button id="reload">Refresh</button><span class="chip" id="src">—</span></div>
+</header>
+<div id="tab-now" class="tab on"><section class="panel" id="call"></section><section class="panel" id="brief"></section><button class="install" id="install" style="display:none">Add to home screen</button></div>
+<div id="tab-boat" class="tab"><section class="panel"><p class="k">Dawn boat · 06–11 MVT</p><div id="boat"></div></section><section class="panel"><p class="k">Next window · 48h</p><div id="sessions"></div></section></div>
+<div id="tab-reefs" class="tab"><section class="panel"><p class="k">Atolls</p><div class="row" id="atolls"></div></section><section class="panel"><div class="row" style="justify-content:space-between"><p class="k">Reefs</p><input id="q" placeholder="Pasta, Gaafu, left…" style="min-width:160px;background:#0c1a22;border:1px solid #14343a;color:inherit;min-height:40px"/></div><div id="tbl" class="reefs"></div></section></div>
+<div id="tab-spot" class="tab"><section class="panel" id="detail"></section></div>
+</div>
+<nav class="nav" id="nav">
+  <button data-tab="now" class="on">Now</button>
+  <button data-tab="boat">Boat</button>
+  <button data-tab="reefs">Reefs</button>
+  <button data-tab="spot">Spot</button>
+</nav>
+<script src="app.js"></script>
+</body>
+</html>
