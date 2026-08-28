@@ -1,0 +1,14 @@
+{
+  "name": "Kandu — Maldives surf",
+  "short_name": "Kandu",
+  "description": "Maldives reef forecast: wrap, tide lag, SMOC current, dawn boat windows.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#03080c",
+  "theme_color": "#03080c",
+  "lang": "en",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
