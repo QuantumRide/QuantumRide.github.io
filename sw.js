@@ -1,5 +1,5 @@
-const CACHE = "kandu-v2";
-const CORE = ["./index.html", "./manifest.webmanifest", "./icon.svg"];
+const CACHE = "kandu-v3";
+const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./app.js"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE).catch(() => {})).then(() => self.skipWaiting()));
 });

@@ -1,2 +1,5 @@
-# QuantumRide.github.io
-Kandu Maldives surf forecast
+# Kandu
+
+Phone app: https://quantumride.github.io/
+
+Safari or Chrome → Add to Home Screen.
